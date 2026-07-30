@@ -170,15 +170,30 @@ new Swiper(".portfolioSwiper", {
 });
 
 new Swiper(".partnersSwiper",{
- loop:true,
- autoplay:false,
- allowTouchMove:false,
- slidesPerView:5,
- spaceBetween:40,
- navigation:{nextEl:".partners-next",prevEl:".partners-prev"},
- breakpoints:{0:{slidesPerView:2},768:{slidesPerView:3},1024:{slidesPerView:5}}
+    loop:true,
+    autoplay:false,
+    allowTouchMove:true,
+    slidesPerView:5,
+    spaceBetween:40,
+    navigation:{
+        nextEl:".partners-next",
+        prevEl:".partners-prev"
+    },
+    breakpoints:{
+        0:{
+            slidesPerView:1,
+            spaceBetween:20
+        },
+        768:{
+            slidesPerView:3,
+            spaceBetween:30
+        },
+        1024:{
+            slidesPerView:5,
+            spaceBetween:40
+        }
+    }
 });
-
 // ======================
 // Portfolio Lightbox
 // ======================
