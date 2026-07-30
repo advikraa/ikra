@@ -1011,22 +1011,59 @@ opacity:1;
     transition-timing-function: linear !important;
 }
 
-.swiper-slide{
-    width:320px !important;
-    height:220px;
+/*=========================
+        PORTFOLIO
+=========================*/
+
+.portfolio .swiper-slide{
+    height:330px;
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
-.swiper-slide img{
-    max-width:100%;
-    max-height:100%;
-    object-fit:contain;
-    transition:.4s;
+.portfolio .swiper-slide{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:340px;
 }
 
-.swiper-slide:hover img{
+.portfolio .swiper-slide img{
+    width:100%;
+    max-width:220px;
+    height:auto;
+    object-fit:contain;
+}
+
+.portfolio .swiper-slide:hover img{
+    transform:scale(1.05);
+}
+
+
+/*=========================
+        PARTNERS
+=========================*/
+
+.partners .swiper-slide{
+    height:140px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.partners .swiper-slide img{
+    max-width:180px;
+    max-height:90px;
+    object-fit:contain;
+    filter:grayscale(100%);
+    opacity:.75;
+    transition:.35s;
+}
+
+.partners .swiper-slide:hover img{
+    filter:none;
+    opacity:1;
     transform:scale(1.08);
 }
 
@@ -1041,50 +1078,7 @@ opacity:1;
     margin-bottom:50px;
 }
 
-.partners-slider{
-    width:100%;
-    overflow:hidden;
-}
 
-.partners-track{
-    display:flex;
-    align-items:center;
-    gap:70px;
-    width:max-content;
-    animation:partnersMove 25s linear infinite;
-}
-
-.partners-track img{
-
-    height:90px;
-    width:auto;
-
-    object-fit:contain;
-
-    transition:.35s;
-
-    opacity:.75;
-    filter:grayscale(100%);
-}
-
-.partners-track img:hover{
-
-    transform:scale(1.15);
-
-    opacity:1;
-
-    filter:none;
-}
-
-@keyframes partnersMove{
-
-    from{
-        transform:translateX(0);
-    }
-
-    to{
-        transform:translateX(-50%);
-    }
 
 }
 .partners h2{
@@ -1134,4 +1128,37 @@ opacity:1;
 .contact-form input[type="tel"]{
     direction: rtl;
     text-align: right;
+}
+
+.partners .swiper-slide img{
+filter:grayscale(100%);
+opacity:.7;
+transition:.35s;
+}
+.partners .swiper-slide:hover img{
+filter:grayscale(0%);
+opacity:1;
+transform:scale(1.08);
+}
+
+
+/* Portfolio uniform sizing override */
+.portfolio .swiper{
+  overflow:hidden;
+}
+.portfolio .swiper-slide{
+  height:360px !important;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.portfolio .swiper-slide img{
+  width:240px !important;
+  height:240px !important;
+  object-fit:contain !important;
+  display:block;
+}
+@media (max-width:768px){
+ .portfolio .swiper-slide{height:280px !important;}
+ .portfolio .swiper-slide img{width:180px !important;height:180px !important;}
 }

@@ -134,3 +134,23 @@ topBtn.addEventListener("click", e => {
         behavior:"smooth"
     });
 });
+
+new Swiper(".portfolioSwiper",{
+ loop:true,
+ autoplay:false,
+ allowTouchMove:false,
+ slidesPerView:5,
+spaceBetween: 5,
+ navigation:{nextEl:".portfolio-next",prevEl:".portfolio-prev"},
+ breakpoints:{0:{slidesPerView:1},768:{slidesPerView:2},1024:{slidesPerView:4}}
+});
+
+new Swiper(".partnersSwiper",{
+ loop:true,
+ autoplay:false,
+ allowTouchMove:false,
+ slidesPerView:5,
+ spaceBetween:40,
+ navigation:{nextEl:".partners-next",prevEl:".partners-prev"},
+ breakpoints:{0:{slidesPerView:2},768:{slidesPerView:3},1024:{slidesPerView:5}}
+});
