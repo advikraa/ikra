@@ -1046,19 +1046,18 @@ opacity:1;
 =========================*/
 
 .partners .swiper-slide{
-    height:140px;
+    height:180px;
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
 .partners .swiper-slide img{
-    max-width:180px;
-    max-height:90px;
+    max-width:260px;
+    max-height:130px;
+    width:auto;
+    height:auto;
     object-fit:contain;
-    filter:grayscale(100%);
-    opacity:.75;
-    transition:.35s;
 }
 
 .partners .swiper-slide:hover img{
@@ -1161,4 +1160,58 @@ transform:scale(1.08);
 @media (max-width:768px){
  .portfolio .swiper-slide{height:280px !important;}
  .portfolio .swiper-slide img{width:180px !important;height:180px !important;}
+}
+/*=========================
+        LIGHTBOX
+=========================*/
+
+.lightbox{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(0,0,0,.9);
+
+    z-index:99999;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+}
+
+.close{
+    position:absolute;
+    top:25px;
+    right:40px;
+
+    color:white;
+    font-size:45px;
+    cursor:pointer;
+}
+.lightbox{
+    display:none;
+
+    position:fixed;
+    inset:0;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.9);
+    z-index:99999;
+}
+
+.lightbox.show{
+    display:flex;
+}
+@media (max-width:768px){
+
+    .scroll-top{
+        right:95px;
+        bottom:20px;
+    }
+
 }

@@ -121,10 +121,28 @@ if (contactForm) {
     });
 
 }
-document.querySelectorAll("nav a").forEach(link => {
-    link.addEventListener("click", () => {
-        nav.classList.remove("active");
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+            history.replaceState(null, "", window.location.pathname);
+        }
+
+        if (nav) {
+            nav.classList.remove("active");
+        }
+
     });
+
 });
 topBtn.addEventListener("click", e => {
     e.preventDefault();
@@ -135,14 +153,20 @@ topBtn.addEventListener("click", e => {
     });
 });
 
-new Swiper(".portfolioSwiper",{
- loop:true,
- autoplay:false,
- allowTouchMove:false,
- slidesPerView:5,
-spaceBetween: 5,
- navigation:{nextEl:".portfolio-next",prevEl:".portfolio-prev"},
- breakpoints:{0:{slidesPerView:1},768:{slidesPerView:2},1024:{slidesPerView:4}}
+new Swiper(".portfolioSwiper", {
+    loop: true,
+    autoplay: false,
+
+    allowTouchMove: true,
+    simulateTouch: false,
+
+    slidesPerView: 5,
+    spaceBetween: 5,
+
+    navigation: {
+        nextEl: ".portfolio-next",
+        prevEl: ".portfolio-prev"
+    }
 });
 
 new Swiper(".partnersSwiper",{
@@ -154,3 +178,34 @@ new Swiper(".partnersSwiper",{
  navigation:{nextEl:".partners-next",prevEl:".partners-prev"},
  breakpoints:{0:{slidesPerView:2},768:{slidesPerView:3},1024:{slidesPerView:5}}
 });
+
+// ======================
+// Portfolio Lightbox
+// ======================
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".close");
+
+if (lightbox && lightboxImg && closeBtn) {
+
+    document.addEventListener("click", function (e) {
+
+        const img = e.target.closest(".portfolio .swiper-slide img");
+
+        if (!img) return;
+
+        lightbox.classList.add("show");
+        lightboxImg.src = img.src;
+    });
+
+    closeBtn.addEventListener("click", function () {
+        lightbox.classList.remove("show");
+    });
+
+    lightbox.addEventListener("click", function (e) {
+        if (e.target === lightbox) {
+            lightbox.classList.remove("show");
+        }
+    });
+}
