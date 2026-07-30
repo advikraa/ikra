@@ -1208,10 +1208,8 @@ transform:scale(1.08);
     display:flex;
 }
 @media (max-width:768px){
-
     .scroll-top{
-        right:95px;
+        right:20px;
         bottom:20px;
     }
-
 }
