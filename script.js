@@ -189,8 +189,21 @@ const closeBtn = document.querySelector(".close");
 
 if (lightbox && lightboxImg && closeBtn) {
 
-    document.addEventListener("click", function (e) {
+document.querySelectorAll(".portfolio .swiper-slide img").forEach(img => {
 
+    img.addEventListener("click", openLightbox);
+    img.addEventListener("touchend", openLightbox);
+
+});
+
+function openLightbox(e) {
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    lightbox.classList.add("show");
+    lightboxImg.src = this.src;
+}
         const img = e.target.closest(".portfolio .swiper-slide img");
 
         if (!img) return;
