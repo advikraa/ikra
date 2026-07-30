@@ -1222,3 +1222,10 @@ transform:scale(1.08);
     margin: 0 !important;
     z-index: 99999 !important;
 }
+@media (max-width:768px){
+    .partners .swiper-slide img{
+        max-width:85%;
+        height:auto;
+        object-fit:contain;
+    }
+}
